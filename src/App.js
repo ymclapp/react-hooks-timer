@@ -39,6 +39,22 @@ function App() {
     return () => clearTimeout(timer);
   });
 
+  const timerComponents = [];
+
+  Object.keys(timeLeft).forEach((interval) => {
+    if (!timeLeft[interval]) {
+      return;
+    }
+
+    timerComponents.push(
+      <span>
+        {timeLeft[interval]} {interval}{" "}
+      </span>
+    );
+  });
+//Here the code loops through the properties of the timeLeft object. If the timer interval has a value greater than zero, it adds an element to the timerComponents array
+
+//The extra {" "} in the code is used so that the intervals that display the time left do not run into each other when displayed on the screen
 
   return (
     <div>
