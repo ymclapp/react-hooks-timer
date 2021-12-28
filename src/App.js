@@ -20,6 +20,7 @@ function App() {
         seconds:  Math.floor((difference / 1000) % 60)
       };
     }
+    return timeLeft;  //Finally, you need to return timeLeft so that you can use the value elsewhere in the component
   }
 
 
