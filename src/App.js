@@ -24,6 +24,7 @@ function App() {
   }
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [year] = useState(new Date().getFullYear());  //To use the current year instead of hard coding 2020, you can create a new state variable and set the initial state to new Date().getFullYear();
 
   //The useEffect is what updates the amount of time remaining. By default, React will re-invoke the effect after every render
   //Every time the variable timeLeft is updated in the state, the useEffect fires. Every time that fires, we set a timer for 1 second (or 1,000ms), which will update the time left after that time has elapsed.
@@ -58,9 +59,11 @@ function App() {
 
   return (
     <div>
-
+      <h1>Hacktoberfest { year } Countdown</h1>
+      <h2>With React Hooks!</h2>
+      { timerComponents.length ? timerComponents : <span> Time's up! </span>}
     </div>
-  )
+  );
 }
 
 export default App;
